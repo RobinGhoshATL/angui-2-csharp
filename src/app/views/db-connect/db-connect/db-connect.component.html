@@ -1,0 +1,37 @@
+<div>
+    <ngx-datatable class="material striped" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="100" [limit]="8" [rows]="dataSource">
+
+
+        <ngx-datatable-column name="Id" [flexGrow]="0.5" [sortable]="true" prop="id" [maxWidth]="80"
+            [canAutoResize]="true">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.id}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Image" [flexGrow]="0.5" [sortable]="true" [canAutoResize]="true" prop="image">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <img src="{{getImage(row?.id)}}" style="height:90px;" alt="" />
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Name" [flexGrow]="0.5" [sortable]="true" [canAutoResize]="true" prop="name">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span matTooltip="{{row.description}}"> {{ row?.name }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Price" [flexGrow]="0.5" [sortable]="true" [canAutoResize]="true" prop="sale_price">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <del style="text-decoration-color: red;">${{ row?.retail_price }}</del> $<span style="font-weight: bolder;">{{ row?.sale_price }}</span>
+            </ng-template>
+        </ngx-datatable-column>
+
+
+
+
+
+
+    </ngx-datatable>
+</div>

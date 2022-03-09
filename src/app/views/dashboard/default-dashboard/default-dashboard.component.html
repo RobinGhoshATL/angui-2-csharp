@@ -1,0 +1,16 @@
+<mat-card class="p-0" [@animate]="{ value: '*', params: { scale: '.9', delay: '200ms' } }">
+  <div fxLayout="row wrap" fxLayoutAlign="space-left center" >
+      <div
+          fxFlex="100"
+          fxFlex.gt-sm="22"
+          fxFlex.sm="50" *ngFor="let item of menuItems;index as i;" [class]="'hide'+i">
+          <a routerLink="/{{item.state}}" >
+          <div class="text-center pt-2 pb-1 border-right-light">
+              <mat-icon color="primary" style="font-size: 30px;">{{item.icon}}</mat-icon>
+              <h6 class="m-0 text-muted">{{item.name}}</h6>
+          </div>
+          </a>
+      </div>
+  </div>
+</mat-card> 
+

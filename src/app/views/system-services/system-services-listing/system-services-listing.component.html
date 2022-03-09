@@ -1,0 +1,29 @@
+<div >
+    <ngx-datatable class="material bg-white" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="50" [limit]="8" [rows]="dataSource" >
+
+      
+        <ngx-datatable-column name="Service Name" [flexGrow]="0.5" [sortable]="true" prop="serviceName" [canAutoResize]="true"  >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.serviceName}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Status" [flexGrow]="0.5" [sortable]="true" [canAutoResize]="true" prop="status"  >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.status }}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+     
+
+        <ngx-datatable-column name="Action" [flexGrow]="0.5"  [sortable]="true" [cellClass]="'actionBtn'" [canAutoResize]="true" >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <button color="primary" [disabled] = "row?.status == 'Stopped'" mat-icon-button mat-sm-button (click)="restartService(row?.serviceName)" matTooltip="Restart Service" class="mr-1" ><mat-icon>replay</mat-icon></button>
+                <button [disabled] = "row?.status == 'Running'" mat-icon-button mat-sm-button (click)="startService(row?.serviceName)" matTooltip="Start Service" class="mr-1" ><mat-icon>play_arrow</mat-icon></button>
+                <button color="warn" [disabled] = "row?.status == 'Stopped'" mat-icon-button mat-sm-button (click)="stopService(row?.serviceName)" matTooltip="Stop Service" class="mr-1" ><mat-icon>stop</mat-icon></button>
+            </ng-template>
+        </ngx-datatable-column>
+
+    </ngx-datatable>
+</div>
