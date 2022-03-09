@@ -119,7 +119,7 @@ This application does external Authentication with Azure AD. Use Azure Active Di
 1. Clone the repository
 
       ```bash
-      git clone https://github.com/RobinGhosh64/angui-2-csharp.git
+      git clone https://github.com/RobinGhoshATL/angui-2-csharp.git
       cd angui-2-csharp 
       ```
 
